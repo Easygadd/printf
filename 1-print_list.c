@@ -1,5 +1,5 @@
 #include "main.h"
-
+#include <stdio.h>
 /**
  *prints_percent - prints a %.
  *@list: no args used
