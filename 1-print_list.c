@@ -85,24 +85,23 @@ int prints_rot13(va_list list)
 {
 	int i, j;
 	char *s;
-	char in[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	char out[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	char input[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char output[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
 	s = va_arg(list, char *);
 	if (s == NULL)
-		return (-1);
-	for (i = 0; s[i] != '\0'; i++)
+		s = "(null)";
+	for (j = 0; s[j] != '\0'; j++)
 	{
-		for (j = 0; j <= 52; j++)
+		for (i = 0; input[i] != '\0'; i++)
 		{
-			if (s[i] == in[j])
+			if (s[j] == input[i])
 			{
-				put_char(out[j]);
+				_putchar(output[i]);
+				count++;
 				break;
 			}
 		}
-		if (j == 53)
-			put_char(s[i]);
 	}
-	return (i);
+	return (count);
 }
